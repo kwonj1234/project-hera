@@ -1,5 +1,5 @@
 import { PropsWithChildren, useCallback } from "react";
-import DocumentPicker, { types } from 'react-native-document-picker';
+import * as DocumentPicker from 'expo-document-picker';
 
 import { Button } from "react-native-paper";
 
@@ -10,22 +10,33 @@ interface props extends PropsWithChildren {
 }
 
 export default function DocumentUploader({children, icon=undefined, mode, onResponse} :props) {
-    const handleDocumentSelection = useCallback(async () => {
-        try {
-          const response = await DocumentPicker.pick({
-            presentationStyle: 'fullScreen',
-          });
-          onResponse(response);
-        } catch (err) {
-          console.warn(err);
-        }
-      }, []);
+  const handlePickDocument = async () => {
+    try {
+      const result = await DocumentPicker.getDocumentAsync({
+        type: '*/*', // All files
+        multiple: true
+      });
+
+      if (result.canceled === false) {
+        // File picked successfully
+        console.log('Document picked:', result);
+        // Handle the selected file here
+      } else {
+        // User cancelled the picker
+        console.log('User cancelled document picker');
+      }
+    } catch (error) {
+      // An error occurred
+      console.error('Error picking document:', error);
+    }
+  };
+
 
     return (
         <Button
             mode={mode}
             icon={icon}
-            onPress={() => handleDocumentSelection()}
+            onPress={() => handlePickDocument()}
         >
             {children}
         </Button>
