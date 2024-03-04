@@ -1,32 +1,15 @@
-import { useCallback } from "react";
+import { PropsWithChildren, useCallback } from "react";
 import DocumentPicker, { types } from 'react-native-document-picker';
 
 import { Button } from "react-native-paper";
 
-interface props {
-    children: string,
+interface props extends PropsWithChildren {
     onResponse: Function,
-    mode: 'text' | 'outlined' | 'contained' | 'elevated' | 'contained-tonal' | undefined
+    mode: 'text' | 'outlined' | 'contained' | 'elevated' | 'contained-tonal' | undefined,
+    icon: string | undefined
 }
 
-interface propsWithLabel extends props {
-    label: string,
-    icon?: never
-}
-
-interface propsWithIcon extends props {
-    label?: never,
-    icon: string,
-}
-
-interface propsWithBoth extends props {
-    label:string,
-    icon:string
-}
-
-type DocumentUploaderProps = propsWithLabel | propsWithIcon | propsWithBoth
-
-export default function DocumentUploader({children, icon, label, mode, onResponse} :DocumentUploaderProps) {
+export default function DocumentUploader({children, icon=undefined, mode, onResponse} :props) {
     const handleDocumentSelection = useCallback(async () => {
         try {
           const response = await DocumentPicker.pick({
