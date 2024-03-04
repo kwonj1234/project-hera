@@ -6,7 +6,7 @@ import { Button } from "react-native-paper";
 interface props extends PropsWithChildren {
     onResponse: Function,
     mode: 'text' | 'outlined' | 'contained' | 'elevated' | 'contained-tonal' | undefined,
-    icon: string | undefined
+    icon?: string | undefined
 }
 
 export default function DocumentUploader({children, icon=undefined, mode, onResponse} :props) {
