@@ -1,11 +1,18 @@
 import { useState } from "react"
 
 import { View } from "react-native"
-import { TextInput } from "react-native-paper"
+import { FAB, TextInput } from "react-native-paper"
 
-export default function LoginScreen() {
+import { LoginProps } from "@/src/Router/router"
+
+export default function LoginScreen({navigation}: LoginProps) {
+
 	const [username, setUsername] = useState("")
 	const [pwd, setPassword] = useState("")
+
+	const login = () => {
+		navigation.navigate("Profile", {userId: "userId"})
+	}
 
 	return (
 		<View>
@@ -22,6 +29,12 @@ export default function LoginScreen() {
 				mode="outlined"
 				placeholder="Password"
 			></TextInput>
+
+			<FAB
+				label="login"
+				uppercase
+				onPress={() => login()}
+			></FAB>
 		</View>
 	)
 }
