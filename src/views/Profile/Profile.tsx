@@ -1,5 +1,5 @@
 import { View, Text } from "react-native"
-import { ProfileProps } from "@/src/Router/router"
+import { ProfileProps } from "@/src/router"
 
 import { Button } from "react-native-paper"
 

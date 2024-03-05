@@ -2,7 +2,7 @@ import type { NativeStackScreenProps } from '@react-navigation/native-stack';
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 
-import { LoginScreen, ProfileScreen, UploadScreen, SignUpScreen } from '@/src/Views';
+import { LoginScreen, ProfileScreen, UploadScreen, SignUpScreen } from '@/src/views';
 
 type StackParamList = {
 	Login: undefined;

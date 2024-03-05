@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { supabase } from "@/src/lib/supabase";
 
-import { SignUpProps } from "@/src/Router/router";
+import { SignUpProps } from "@/src/router";
 
 import { View } from "react-native";
 import { TextInput, FAB } from "react-native-paper";
@@ -35,12 +35,14 @@ export default function SignUpScreen({navigation} :SignUpProps) {
 				value={password}
 				onChangeText={text => setPassword(text)}
 				mode="outlined"
-				placeholder="Username"
+				placeholder="Password"
 			></TextInput>
 
       <FAB
-				label="Sign Up"
+				label={loading ? "Creating Account..." : "Create Account"}
+        disabled={loading}
 				uppercase
+        onPress={() => signUpWithEmail()}
 			></FAB>
     </View>
   )

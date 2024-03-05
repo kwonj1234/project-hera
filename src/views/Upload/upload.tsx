@@ -1,9 +1,9 @@
 import { useState } from "react"
 
-import { UploadProps } from "@/src/Router/router"
+import { UploadProps } from "@/src/router"
 
 import { View } from "react-native"
-import { DocumentUploader } from "@/src/Components"
+import { DocumentUploader } from "@/src/components"
 
 export default function UploadScreen({navigation} :UploadProps) {
 	const [document, setDocument] = useState(undefined)
