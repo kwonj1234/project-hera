@@ -1,7 +1,7 @@
 import { useState } from "react"
 
 import { View } from "react-native"
-import { FAB, TextInput } from "react-native-paper"
+import { Button, FAB, TextInput } from "react-native-paper"
 
 import { LoginProps } from "@/src/Router/router"
 
@@ -12,6 +12,10 @@ export default function LoginScreen({navigation}: LoginProps) {
 
 	const login = () => {
 		navigation.navigate("Profile", {userId: "userId"})
+	}
+
+	const navigateToSignUp = () => {
+		navigation.navigate("SignUp")
 	}
 
 	return (
@@ -35,6 +39,12 @@ export default function LoginScreen({navigation}: LoginProps) {
 				uppercase
 				onPress={() => login()}
 			></FAB>
+
+			<Button
+				onPress={() => navigateToSignUp()}
+			>
+				Sign Up
+			</Button>
 		</View>
 	)
 }
