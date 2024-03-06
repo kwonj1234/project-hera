@@ -5,7 +5,7 @@ import Router from '@/src/router'
 
 export default function App() {
   const { session, loading } = useAuth()
-
+  
   if (loading) {
     return <ActivityIndicator />
   }

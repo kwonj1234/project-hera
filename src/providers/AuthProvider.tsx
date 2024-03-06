@@ -20,11 +20,13 @@ export default function AuthProvider({ children } :PropsWithChildren) {
   useEffect(() => {
     const fetchSession = async () => {
       const { data, error } = await supabase.auth.getSession()
+      console.log("SEFSEF")
       setSession(data.session)
       setLoading(false)
     }
 
     fetchSession()
+    console.log("GHER")
     supabase.auth.onAuthStateChange((_event, session) => {
       setSession(session)
     })
