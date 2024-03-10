@@ -21,7 +21,6 @@ export default function LoginScreen({navigation}: LoginProps) {
 	}
   
   async function signInWithEmail() {
-    setLoading(true);
     const { error } = await supabase.auth.signInWithPassword({
       email: email,
       password: password,
