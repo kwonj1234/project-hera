@@ -1,5 +1,7 @@
 # Project Hera
 
+Check out the alternate version using expo-router [here](https://github.com/kwonj1234/Hera)
+
 ## Installed Package
 - React Native Paper
 - React Navigation
