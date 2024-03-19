@@ -3,7 +3,7 @@
 Personal healthcare management application built using React Native and Supabase. This version
 is used to test creating applications using just the built in react native router without expo.
 
-Check out the alternate version using expo-router [here](https://github.com/kwonj1234/Hera)
+Check out the current version using expo-router [here](https://github.com/kwonj1234/Hera)
 
 ## Installed Package
 - React Native Paper
